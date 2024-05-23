@@ -3,13 +3,18 @@ from os import getenv
 import pytest
 from selenium import webdriver
 from selenium.webdriver.remote.webdriver import WebDriver
+from selenium.webdriver.chrome.options import Options
 
 from pages import LoginPage
 
 
 @pytest.fixture
 def browser() -> WebDriver:
-    driver: WebDriver = webdriver.Chrome()
+    options: Options = webdriver.ChromeOptions()
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument('--remote-debugging-pipe')
+    driver: WebDriver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
 
