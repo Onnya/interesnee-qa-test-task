@@ -19,7 +19,7 @@ class LoginPage:
 
     def wait_for_login_page(self) -> None:
         WebDriverWait(self.driver, 10).until(
-            ec.visibility_of_element_located(self.email_field)
+            ec.visibility_of_element_located (self.email_field)
         )
 
     def wait_for_main_page(self) -> None:
@@ -28,11 +28,8 @@ class LoginPage:
         )
 
     def open_page(self) -> None:
-        try:
-            self.driver.get(self.url)
-        except Exception as e:
-            print(e)
-            print(self.url)
+        assert self.url == "", self.url
+        self.driver.get(self.url)
         self.wait_for_login_page()
 
     def login(self, email: str, password: str) -> None:
