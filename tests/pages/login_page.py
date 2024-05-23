@@ -28,7 +28,11 @@ class LoginPage:
         )
 
     def open_page(self) -> None:
-        self.driver.get(self.url)
+        try:
+            self.driver.get(self.url)
+        except Exception as e:
+            print(e)
+            print(self.url)
         self.wait_for_login_page()
 
     def login(self, email: str, password: str) -> None:
