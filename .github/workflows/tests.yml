@@ -10,11 +10,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Set up ChromeDriver
-      uses: nanasess/setup-chromedriver@v1
-      with:
-        chromedriver-version: 'latest'
-        cache: true
+    - name: Install Chrome and ChromeDriver
+      uses: Rob--W/cromedriver-action@v1
 
     - name: Set up Python
       uses: actions/setup-python@v4
