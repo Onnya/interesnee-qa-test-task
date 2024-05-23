@@ -14,9 +14,11 @@ from pages import LoginPage
 def browser() -> WebDriver:
     options: Options = webdriver.ChromeOptions()
     options.add_argument("--no-sandbox")
+    options.add_argument('--headless')
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument('--remote-debugging-pipe')
-    driver: WebDriver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver: WebDriver = webdriver.Chrome(
+        service=Service(ChromeDriverManager().install()), options=options)
     yield driver
     driver.quit()
 
