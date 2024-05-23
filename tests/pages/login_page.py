@@ -28,7 +28,6 @@ class LoginPage:
         )
 
     def open_page(self) -> None:
-        assert self.url == "", self.url
         self.driver.get(self.url)
         self.wait_for_login_page()
 

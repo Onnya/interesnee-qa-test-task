@@ -22,9 +22,9 @@ jobs:
 
     - name: Set environment variables
       run: |
-        echo "TEST_EMAIL=$TEST_EMAIL" >> $GITHUB_ENV
-        echo "TEST_PASSWORD=$TEST_PASSWORD" >> $GITHUB_ENV
-        echo "TEST_URL=$TEST_URL" >> $GITHUB_ENV
+        echo "TEST_EMAIL=${{ secrets.TEST_EMAIL }}" >> $GITHUB_ENV
+        echo "TEST_PASSWORD=${{ secrets.TEST_PASSWORD }}" >> $GITHUB_ENV
+        echo "TEST_URL=${{ secrets.TEST_URL }}" >> $GITHUB_ENV
 
     - name: Run Tests
       run: pytest
