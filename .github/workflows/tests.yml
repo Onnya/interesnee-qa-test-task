@@ -10,6 +10,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
+    - name: Set up ChromeDriver
+      uses: nanasess/setup-chromedriver@v1
+      with:
+        chromedriver-version: 'latest'
+        cache: true
+
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
