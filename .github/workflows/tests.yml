@@ -27,4 +27,4 @@ jobs:
         echo "TEST_URL=$TEST_URL" >> $GITHUB_ENV
 
     - name: Run Tests
-      run: pytest -d
+      run: pytest
