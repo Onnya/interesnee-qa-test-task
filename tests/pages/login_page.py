@@ -19,7 +19,7 @@ class LoginPage:
 
     def wait_for_login_page(self) -> None:
         WebDriverWait(self.driver, 10).until(
-            ec.visibility_of_element_located (self.email_field)
+            ec.visibility_of_element_located(self.email_field)
         )
 
     def wait_for_main_page(self) -> None:

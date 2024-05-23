@@ -13,10 +13,10 @@ from pages import LoginPage
 @pytest.fixture
 def browser() -> WebDriver:
     options: Options = webdriver.ChromeOptions()
-    options.add_argument("--no-sandbox")
-    options.add_argument('--headless')
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument('--remote-debugging-pipe')
+    options_str = ["--no-sandbox", "--headless", "--disable-dev-shm-usage",
+                   "--remote-debugging-pipe"]
+    for option_value in options_str:
+        options.add_argument(option_value)
     driver: WebDriver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()), options=options)
     yield driver
